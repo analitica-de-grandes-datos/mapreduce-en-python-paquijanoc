@@ -3,23 +3,23 @@
 #
 import sys
 
-current_word = None
+current_state = None
 count = 0
 
 # Lee los pares clave-valor del mapper y realiza la reducción
 for line in sys.stdin:
     line = line.strip()
-    word, value = line.split('\t', 1)
+    state, value = line.split('\t', 1)
     
-    if current_word == word:
+    if current_state == state:
         count += int(value)
     else:
-        if current_word:
-            # Emite el resultado de la palabra anterior
-            print(f'{current_word}\t{count}')
-        current_word = word
+        if current_state:
+            # Emite el resultado del estado anterior
+            print(f'{current_state}\t{count}')
+        current_state = state
         count = int(value)
 
-# Emite el resultado de la última palabra
-if current_word:
-    print(f'{current_word}\t{count}')
+# Emite el resultado del último estado
+if current_state:
+    print(f'{current_state}\t{count}')
