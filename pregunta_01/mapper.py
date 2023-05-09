@@ -7,7 +7,6 @@ import csv
 # Lee los registros del archivo credit.csv y emite los pares clave-valor
 with open('credit.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
-    next(reader)  # Omitir encabezado
     
     for row in reader:
         credit_history = row[2]  # Obtiene el valor de la tercera columna (credit_history)
