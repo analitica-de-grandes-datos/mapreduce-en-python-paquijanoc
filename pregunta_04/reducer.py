@@ -18,4 +18,4 @@ for line in sys.stdin:
 
 # Emitir los resultados
 for letter, count in letter_counts.items():
-    print(f'{letter}\t{count}')
+    print(f'{letter},{count}')
